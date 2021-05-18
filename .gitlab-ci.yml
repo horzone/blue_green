@@ -9,7 +9,7 @@ Install_dependencies:
     - yarn install
   artifacts:
     paths:
-	  -node_modules
+      -node_modules
 	  
 run_test
   stage:test
