@@ -16,7 +16,11 @@ Install_dependencies:
         - yarn.lock
     paths:
       - node_modules
-      
+
 run_test:
   stage: test
   script: CI=true yarn test
+
+run_linter:
+  stage: test
+  script: yarn run eslint src/**.js
