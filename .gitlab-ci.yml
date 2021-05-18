@@ -7,12 +7,9 @@ Install_dependencies:
   stage: build
   script: 
     - yarn install
-  cache:
+  artifacts:
     paths:
       - node_modules
-  key:
-    files:
-      - yarn.lock
       
 run_test:
   stage: test
