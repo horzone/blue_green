@@ -1,18 +1,19 @@
-image: node:14.15.0-stretch
+image:node:14.15.0-stretch
 stages:
-  -build
-  -test
+  - build
+  - test
 
 Install_dependencies:
-  stage:build
-  script:yarn install
+  stage: build
+  script: 
+    - yarn install
   cache:
     paths:
-      -node_modules
+      - node_modules
   key:
     files:
       - yarn.lock
       
 run_test:
-  stage:test
-  script:CI=true yarn test
+  stage: test
+  script: CI=true yarn test
