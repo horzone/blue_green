@@ -2,6 +2,7 @@ image: node:14.15.0-stretch
 stages:
   - build
   - test
+  - deploy
 
 Install_dependencies:
   stage: build
