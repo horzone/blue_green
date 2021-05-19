@@ -11,10 +11,6 @@ Install_dependencies:
   script: 
     - yarn install
     - yarn build
-  artifacts:
-    paths:
-      - node_modules
-      - build
   cache:
     key:
       files:
