@@ -3,8 +3,10 @@ stages:
   - build
   - test
   - deploy
+  - revert
 
 Install_dependencies:
+  image: node:14.15.0-stretch
   stage: build
   script: 
     - yarn install
@@ -12,6 +14,7 @@ Install_dependencies:
   artifacts:
     paths:
       - node_modules
+      - build
   cache:
     key:
       files:
@@ -23,10 +26,6 @@ run_test:
   stage: test
   script: CI=true yarn test
 
-run_linter:
-  stage: test
-  script: yarn run eslint src/**.js
- 
 test:
   stage: deploy
   script:
