@@ -18,10 +18,6 @@ Install_dependencies:
     paths:
       - node_modules
 
-run_test:
-  stage: test
-  script: CI=true yarn test
-
 test:
   stage: deploy
   script:
