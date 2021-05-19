@@ -7,6 +7,7 @@ Install_dependencies:
   stage: build
   script: 
     - yarn install
+    - yarn build
   artifacts:
     paths:
       - node_modules
@@ -24,3 +25,9 @@ run_test:
 run_linter:
   stage: test
   script: yarn run eslint src/**.js
+ 
+test:
+  stage: deploy
+  script:
+    - cp -r build /www/test-app/$CI_COMMIT_SHA
+    - ln -fsnv /var/www/test-app/$CI_COMMIT_SHA /www/html
